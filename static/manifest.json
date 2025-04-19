@@ -1,0 +1,12 @@
+{
+  "name": "Crowd Management App",
+  "short_name": "Crowd App",
+  "description": "Monitor crowd density in Mecca & Madina",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff"
+
+
+
+}
