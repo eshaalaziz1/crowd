@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Login / Sign Up{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="form-box" id="login-box" {% if request.form.get('action') == 'signup' %}style="display:none;"{% endif %}>
+        <h2>Login</h2>
+        <form method="POST" action="{{ url_for('auth') }}">
+            <input type="hidden" name="action" value="login">
+
+            <div class="form-group">
+                <label for="login-username">Username</label>
+                <input type="text" name="username" id="login-username" placeholder="Username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="login-password" placeholder="Password" required>
+                    <span toggle="#login-password" class="fa fa-fw fa-eye toggle-password"></span>
+                </div>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="toggleForms('signup')">Sign up here</a></p>
+    </div>
+
+    <div class="form-box" id="signup-box" {% if request.form.get('action') != 'signup' %}style="display:none;"{% endif %}>
+        <h2>Sign Up</h2>
+        <form method="POST" action="{{ url_for('auth') }}">
+            <input type="hidden" name="action" value="signup">
+
+            <div class="form-group">
+                <label for="signup-username">Username</label>
+                <input type="text" name="username" id="signup-username" placeholder="Username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="signup-password" placeholder="Password" required>
+                    <span toggle="#signup-password" class="fa fa-fw fa-eye toggle-password"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="signup-confirm-password">Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="password" name="confirm_password" id="signup-confirm-password" placeholder="Confirm Password" required>
+                    <span toggle="#signup-confirm-password" class="fa fa-fw fa-eye toggle-password"></span>
+                </div>
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="toggleForms('login')">Log in here</a></p>
+    </div>
+</div>
+
+<!-- FontAwesome for eye icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<style>
+    .auth-container {
+        max-width: 400px;
+        margin: auto;
+        padding: 2rem;
+    }
+
+    .form-box {
+        background-color: #f9f9f9;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-bottom: 1.5rem;
+    }
+
+    .form-box h2 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .password-wrapper {
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #888;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 0.5rem;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    p {
+        margin-top: 1rem;
+        text-align: center;
+    }
+</style>
+
+<script>
+    function toggleForms(formType) {
+        const loginBox = document.getElementById('login-box');
+        const signupBox = document.getElementById('signup-box');
+        if (formType === 'signup') {
+            loginBox.style.display = 'none';
+            signupBox.style.display = 'block';
+        } else {
+            loginBox.style.display = 'block';
+            signupBox.style.display = 'none';
+        }
+    }
+
+    document.querySelectorAll('.toggle-password').forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            const input = document.querySelector(this.getAttribute('toggle'));
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics | Crowd Management{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Analytics Dashboard</h2>
+
+  <!-- Dropdown Filter -->
+  <form method="get" action="{{ url_for('analytics') }}" class="mb-4">
+    <label for="month">Filter by Month:</label>
+    <select name="month" id="month" class="form-select w-auto d-inline mx-2" onchange="this.form.submit()">
+      <option value="">All Months</option>
+      {% for month in months %}
+        <option value="{{ month }}" {% if selected_month == month %}selected{% endif %}>{{ month }}</option>
+      {% endfor %}
+    </select>
+  </form>
+
+  <!-- Chart Cards -->
+  <div class="row">
+    {% for title, graph in [
+        ('Breakdown of Stress Level by Crowd Density', graphs.pie),
+        ('Activity Types Contributing to Crowd Peaks', graphs.area),
+        ('Incident Occurrence by Hour of Day', graphs.heatmap),
+        ('Queue Time by AR Navigation Use', graphs.queue_box),
+        ('Satisfaction by AR Navigation Use', graphs.satisfaction_box),
+        ('Health Condition vs. Environmental Stressors', graphs.bubble),
+        ('Age Group vs. Health Condition (by Nationality)', graphs.stacked_bar)
+    ] %}
+    <div class="col-12 mb-5">
+      <div class="card shadow-sm p-3">
+        <h4 class="mb-3">{{ title }}</h4>
+        {{ graph | safe }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

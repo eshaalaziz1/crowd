@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Map | Crowd Management{% endblock %}
+
+{% block content %}
+<h2>Crowd Density Map</h2>
+<p>Marker colors represent: <span style="color:red;">High</span>, <span style="color:orange;">Medium</span>, <span style="color:green;">Low</span> crowd density.</p>
+<iframe src="{{ url_for('static', filename='interactive_map.html') }}" width="100%" height="600" style="border:none;"></iframe>
+{% endblock %}

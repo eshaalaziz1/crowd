@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}About | Crowd Insights{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">About This Project</h1>
+
+  <!-- Mission -->
+  <div class="bg-light p-4 rounded shadow mb-4">
+    <h3>📌 My Mission</h3>
+    <p>
+      To empower pilgrims and authorities with data-driven insights that improve crowd navigation, safety, and comfort during Hajj and Umrah.
+    </p>
+  </div>
+
+  <!-- Story -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <img src="{{ url_for('static', filename='umrah_experience.jpg') }}" class="img-fluid rounded shadow" alt="Umrah Experience">
+    </div>
+    <div class="col-md-6">
+      <h3>🌙 Inspired by a Personal Experience</h3>
+      <p>
+        On the 27th night of Ramadan, I performed Umrah with over 4.2 million pilgrims. The spiritual beauty was profound—but the overwhelming crowd also revealed critical gaps in navigation and safety. That moment inspired this platform.
+      </p>
+    </div>
+  </div>
+
+  <!-- What it does -->
+  <div class="bg-light p-4 rounded shadow mb-4">
+    <h3>📊 What This Website Provides</h3>
+    <ul>
+      <li>📍 A congestion heatmap to identify high-density zones</li>
+      <li>📈 Visual insights into incidents, satisfaction, stress, and queue times</li>
+      <li>🧠 A short quiz to understand your crowd behavior personality with LIVE DATA displayed</li>
+    </ul>
+  </div>
+
+  <!-- Future Vision -->
+  <div class="bg-light p-4 rounded shadow mb-4">
+    <h3>🔮 Looking Ahead</h3>
+    <p>
+      While current data is recent, the next step is integrating real-time feeds to dynamically guide pilgrims during peak seasons.
+    </p>
+  </div>
+</div>
+{% endblock %}

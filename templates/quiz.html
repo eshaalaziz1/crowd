@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Crowd Personality Quiz{% endblock %}
+
+{% block content %}
+<h2>Crowd Personality Quiz</h2>
+<form method="POST">
+    <label>1. How do you feel in large crowds?</label><br>
+    <input type="radio" name="q1" value="Calm" required> Calm<br>
+    <input type="radio" name="q1" value="Neutral"> Neutral<br>
+    <input type="radio" name="q1" value="Anxious"> Anxious<br><br>
+
+    <label>2. How do you prefer to navigate?</label><br>
+    <input type="radio" name="q2" value="Follow the crowd" required> Follow the crowd<br>
+    <input type="radio" name="q2" value="Use technology"> Use technology<br>
+    <input type="radio" name="q2" value="Ask people"> Ask people<br><br>
+
+    <label>3. What do you do when you get overwhelmed?</label><br>
+    <input type="radio" name="q3" value="Breathe deeply" required> Breathe deeply<br>
+    <input type="radio" name="q3" value="Look for exits"> Look for exits<br>
+    <input type="radio" name="q3" value="Panic"> Panic<br><br>
+
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+{% endblock %}

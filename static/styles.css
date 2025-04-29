@@ -1,0 +1,89 @@
+/* General Page Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f2f4f7;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+}
+
+.navbar a {
+  color: white;
+  margin-right: 15px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Auth Container Styling */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-box h2 {
+  text-align: center;
+  color: #2a5298;
+  margin-bottom: 20px;
+}
+
+.form-box input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #2a5298;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e3c72;
+}
+
+p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Analytics Dropdown */
+.filter-form {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.filter-form select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}

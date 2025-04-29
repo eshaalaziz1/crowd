@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Crowd Management for Umrah & Hajj{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+  <h1 class="mb-4">Welcome to the Hajj & Umrah Crowd Insights Dashboard</h1>
+
+  <p class="lead mb-4">
+    This platform helps uncover patterns in crowd behavior at Masjid Al Haram using recent data from Makkah.
+    Users can explore congestion levels across different zones and gain insight into incidents, satisfaction levels, queue times,
+    and environmental stressors. After logging in, users can take a short personality quiz
+      to help better understand their crowd behavior type with live data reflecting the distribution of user personalities..
+  </p>
+
+  <!-- Image of Makkah -->
+  <div class="mb-4">
+    <img src="{{ url_for('static', filename='makkah.jpg') }}" class="img-fluid rounded shadow" alt="Makkah Crowd" style="max-height: 400px;">
+  </div>
+
+  <a href="{{ url_for('analytics') }}" class="btn btn-primary btn-lg">Explore Analytics</a>
+</div>
+{% endblock %}
